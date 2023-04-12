@@ -1,18 +1,30 @@
 <template>
-  <div id="app">
+  <!-- <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  </div> -->
+
+  <button class="btn btn-primary pl-5 pr-5" @click="createPDF">Download PDF</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+//import HelloWorld from './components/HelloWorld.vue'
+import { jsPDF } from 'jspdf'
+// export default {
+//   name: 'App',
+//   components: {
+//     HelloWorld
+//   }
+// }
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  methods: {
+  createPDF() {
+    // let pdfName = 'test'; 
+    var doc = new jsPDF();
+    doc.text("Hello World", 10, 10);
+    doc.save('sample' + '.pdf');
   }
+}
 }
 </script>
 
