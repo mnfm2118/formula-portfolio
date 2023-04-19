@@ -10,7 +10,9 @@
   "dependencies": {
     "@editorjs/editorjs": "^2.26.5",
     "core-js": "^3.8.3",
-    "vue": "^2.6.14"
+    "firebase": "^9.20.0",
+    "vue": "^2.6.14",
+    "vue-router": "^3.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
