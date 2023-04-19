@@ -1,3 +1,33 @@
+<!-- <template>
+  <div id="app">
+    <tab-menu></tab-menu>
+    <router-view/>
+  </div>
+</template>
+
+<script>
+
+import TabMenu from '@/components/TabMenu'
+
+export default {
+  name: 'App',
+  components: {
+    TabMenu
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style> -->
+
 <template>
   <!-- <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
@@ -23,6 +53,21 @@ export default {
     var doc = new jsPDF();
     doc.text("Hello World", 10, 10);
     doc.save('sample' + '.pdf');
+
+  <div id="app">
+    <tab-menu></tab-menu>
+    <router-view/>
+  </div>
+</template>
+
+<script>
+
+import TabMenu from '@/components/TabMenu'
+
+export default {
+  name: 'App',
+  components: {
+    TabMenu
   }
 }
 }
@@ -30,7 +75,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
