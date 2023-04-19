@@ -17,9 +17,9 @@
       return {
         items: [
           { title: 'top', path: '/' },
-          { title: 'profile', path: '/profile' },
-          { title: 'skills', path: '/skills' },
-          { title: 'login,register', path: '/outputs' }
+          { title: 'SingOut', path: '/SingOut' },
+          { title: 'SingUp', path: '/SingUp' },
+          { title: 'SingIn', path: '/SingIn' }
         ]
       }
     }

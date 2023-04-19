@@ -13,7 +13,7 @@
     
     <script>
     export default {
-        name: 'LoginRegister',
+     name: 'SingIn',
      data(){
       return{
        email:"",
