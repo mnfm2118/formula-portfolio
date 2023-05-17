@@ -17,9 +17,12 @@
       return {
         items: [
           { title: 'top', path: '/' },
-          { title: 'SingOut', path: '/SingOut' },
-          { title: 'SingUp', path: '/SingUp' },
-          { title: 'SingIn', path: '/SingIn' }
+          { title: 'SingOut', path: '/sing_out' },
+          { title: 'SingUp', path: '/sing_up' },
+          { title: 'SingIn', path: '/sing_in' },
+          { title: 'EditJs', path: '/edit_Js'},
+          { title: 'PdfExport', path: '/pdf_export'},
+          { title: 'HelpPage', path: '/help'}
         ]
       }
     }

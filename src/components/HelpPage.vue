@@ -12,7 +12,7 @@
     name: 'HelpPage',
     data () {
       return {
-        name: 'help',
+        name: 'HelpPage',
         text: '使用方法・お問い合わせ'
       }
     }
