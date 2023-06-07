@@ -26,7 +26,9 @@
     createPDF() {
       // let pdfName = 'test'; 
       var doc = new jsPDF();
-      doc.text("Hello World", 10, 10);
+      document.getElementById('editor');
+      const text = document.getElementById('editor').innerText;
+      doc.text(text, 10, 10);
       doc.save('sample' + '.pdf');
     }
   },

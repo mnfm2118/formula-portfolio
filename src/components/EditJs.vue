@@ -1,17 +1,21 @@
 <template>
-    <div id="codex-editor"></div>
+  <div>
+    <div id="editor"></div>
+
+    <PdfExport></PdfExport>
+    </div>
   </template>
   
   <script>
   import EditorJS from '@editorjs/editorjs'
+import PdfExport from './PdfExport.vue'
 
   export default {
-    name: 'EditJs',
-
+    name: "EditJs",
     data() {
-      return {
-        editor: null,
-      }
+        return {
+            editor: null,
+        };
     },
     //mounted() {
     //   this.editor = this.$editor.EditorJS({
@@ -21,15 +25,17 @@
     //   })
     // },
     methods: {
-    // Editor.js関連
-    doEditor() {
-      this.editor = new  EditorJS({
-        holder: 'codex-editor',
-      })
-    }  
-  },
-  mounted() {
-    this.doEditor()
-  }
-  }
+        // Editor.js関連
+        doEditor() {
+            console.log("Hello"),
+                this.editor = new EditorJS({
+                    holder: "editor",
+                });
+        }
+    },
+    mounted() {
+        this.doEditor();
+    },
+    components: { PdfExport }
+}
   </script>

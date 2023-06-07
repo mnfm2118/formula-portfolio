@@ -5,14 +5,15 @@ import HelloWorld from '../components/HelloWorld.vue'
 import SingIn from '../components/SingIn.vue' //①import
 import SingOut from '../components/SingOut.vue'
 import SingUp from '../components/SingUp.vue'
-// import EditJs from '../componets/EditJs.vue'
+import EditJs from '../components/EditJs.vue'
 import PdfExport from '../components/PdfExport.vue'
 import HelpPage from '../components/HelpPage.vue'
-
+// import { app } from '../firebase'
+// import { getAuth } from 'firebase/auth'
 
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
 mode: 'history',
 
   routes: [
@@ -41,11 +42,12 @@ mode: 'history',
       component: SingUp
     },
 
-    // {
-    //     path: '/EditJs',
-    //     name: 'EditJs',
-    //     component: EditJs
-    // },
+    {
+        path: '/edit_js',
+        name: 'EditJs',
+        component: EditJs,
+        meta: { requiresAuth: true }
+    },
 
     {
         path: '/pdf_export',
@@ -59,4 +61,16 @@ mode: 'history',
         component: HelpPage
     }
   ]
-})
+});
+
+// router.beforeEach((to, from, next) => {
+//   console.log(getAuth(app).currentUser);
+//   const requiresAuth = to.matched.some(recode => recode.meta.requiresAuth);
+//   if (requiresAuth && !getAuth(app).currentUser)  {
+//     next({ path: "/sing_in", query: { redirect: to.fullPath } });
+//   } else {
+//     next();
+//   }
+// });
+
+export default router;

@@ -15,10 +15,8 @@
   
   <script>
 
-
-
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from "../firebase.js"
+import { app } from "../firebase.js";
 
 const auth = getAuth(app);
 
