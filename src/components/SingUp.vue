@@ -9,7 +9,7 @@
         <h3>Password</h3>
         <input type="text" placeholder="Password" v-model="password" />
       </div>
-      <button @click="login">Sing UP!!</button>
+      <button @click="registerUser">Sing UP!!</button>
     </div>
   </template>
   
@@ -21,6 +21,7 @@ import { app } from "../firebase.js";
 const auth = getAuth(app);
 
 
+
   export default {
     name: "SingUp",
     data() {
@@ -29,18 +30,11 @@ const auth = getAuth(app);
         password: ""
       };
     },
-    methods:{
-  login(){
+    methods: {
+  registerUser(){
     createUserWithEmailAndPassword(auth, this.email, this.password)
-  .then(() => {
-    // Signed in
-    // ...
-  })
-  .catch(() => {
-    // ..
-  });
+  }
 }
-    }
 }
 
   </script>
