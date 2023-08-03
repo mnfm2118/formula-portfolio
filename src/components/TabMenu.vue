@@ -55,7 +55,7 @@
     opacity: 0.4;
   }
   
-  /*  router-linkがaタグとして表示されてたのでスタイルをaタグに書いた*/
+
   a {
     position: absolute;
     left: 0;
