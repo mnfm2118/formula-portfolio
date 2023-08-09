@@ -13,6 +13,7 @@
   import PdfExport from './PdfExport.vue'
   import { app } from "../firebase";
   import { getFirestore, collection, addDoc } from "firebase/firestore";
+  import { getAuth } from "firebase/auth";
 
   const db = getFirestore(app);
 
@@ -33,7 +34,8 @@
       async saveDocument() {
         const body = document.getElementById("editor")
         const docRef = await addDoc(collection(db, "documents"), {
-          body: body.outerHTML
+          body: body.outerHTML,
+          uid: getAuth(app).currentUser.uid
         });
         alert(docRef.id);      
       }

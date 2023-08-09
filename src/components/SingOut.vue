@@ -3,35 +3,37 @@
       class="pa-5 ma-auto"
       width="50%"
     >
-      <div class="logout">ログアウトしますか？</div>
-      <v-btn
+      <div class="logout">SING OUT？</div>
+      <button
         class="ma-3"
         color="gray"
         @click="$router.go(-1)"
-      >戻る</v-btn>
-      <v-btn
+      >戻る</button>
+      <button 
         color="grey lighten-1"
         dark
-        @click="logout()"
-      >ログアウト</v-btn>
+        @click="logout()">
+        SIGN OUT!!
+      </button>
     </v-card>
   </template>
   
   <script>
-import firebase from 'firebase/compat/app';
+import { getAuth, signOut } from 'firebase/auth';
+import {app} from '../firebase';
 import router from '../router';
-  
+
+const auth = getAuth(app);
   export default {
     name: 'SingOut',
     methods: {
       logout() {
-        firebase.auth().signOut()
-        .then(() => {
-          // ログイン画面に遷移
+        signOut(auth).then(() => {
+          // SINGIN画面に遷移
           router.push({ path: '/sing_in' });
         })
         .catch(() => {
-          alert('ログアウト失敗')
+          alert('ログアウトerror')
         });
       }
     },

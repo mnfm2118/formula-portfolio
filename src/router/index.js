@@ -8,8 +8,8 @@ import SingUp from '../components/SingUp.vue'
 import EditJs from '../components/EditJs.vue'
 import PdfExport from '../components/PdfExport.vue'
 import HelpPage from '../components/HelpPage.vue'
-// import { app } from '../firebase'
-// import { getAuth } from 'firebase/auth'
+import { app } from '../firebase'
+import { getAuth } from 'firebase/auth'
 
 Vue.use(Router)
 
@@ -64,14 +64,14 @@ base: '/vue-test/',
   ]
 });
 
-// router.beforeEach((to, from, next) => {
-//   console.log(getAuth(app).currentUser);
-//   const requiresAuth = to.matched.some(recode => recode.meta.requiresAuth);
-//   if (requiresAuth && !getAuth(app).currentUser)  {
-//     next({ path: "/sing_in", query: { redirect: to.fullPath } });
-//   } else {
-//     next();
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  console.log(getAuth(app).currentUser);
+  const requiresAuth = to.matched.some(recode => recode.meta.requiresAuth);
+  if (requiresAuth && !getAuth(app).currentUser)  {
+    next({ path: "/sing_in", query: { redirect: to.fullPath } });
+  } else {
+    next();
+  }
+});
 
 export default router;

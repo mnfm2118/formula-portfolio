@@ -31,6 +31,13 @@
      methods: {
       login(){
         signInWithEmailAndPassword(auth, this.email, this.password)
+        .then(res => {
+      alert('success', res)
+    } )
+    .catch(e => {
+      alert('error')
+      console.log('error', e)
+    })
       }
      }
     }
