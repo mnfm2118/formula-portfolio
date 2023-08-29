@@ -14,6 +14,7 @@
   import { app } from "../firebase";
   import { getFirestore, collection, addDoc } from "firebase/firestore";
   import { getAuth } from "firebase/auth";
+  import doEditor from '../plugins/editor'
 
   const db = getFirestore(app);
 
@@ -26,11 +27,11 @@
     },
 
     methods: {
-        doEditor() {
-                this.editor = new EditorJS({
-                holder: "editor",
-                });
-      },
+    //     doEditor() {
+    //             this.editor = new EditorJS({
+    //             holder: "editor",
+    //             });
+      // },
       async saveDocument() {
         const body = document.getElementById("editor")
         const docRef = await addDoc(collection(db, "documents"), {
@@ -41,7 +42,7 @@
       }
     },
     mounted() {
-        this.doEditor();
+        doEditor();
     },
     components: { PdfExport }
   }

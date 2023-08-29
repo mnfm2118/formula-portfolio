@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <tab-menu></tab-menu>
-    <router-view/>
+    <v-app>
+      <v-app-bar app>
+        <Tab-menu />
+      </v-app-bar>
+
+      <v-main>
+        <router-view />
+      </v-main>
+    </v-app>
   </div>
 </template>
 

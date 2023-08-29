@@ -1,15 +1,26 @@
 <template>
     <div>
       <h1>SING UP</h1>
+      <v-container>
       <div>
-        <h3>E-mail</h3>
-        <input type="text" placeholder="E-mail" v-model="email" />
+        <h2>E-mail</h2>
+        <v-text-field label="*****@mail.com" v-model="email" />
       </div>
       <div>
-        <h3>Password</h3>
-        <input type="text" placeholder="Password" v-model="password" />
+        <h2>Password</h2>
+        <v-text-field
+         label="(10文字以上)"
+         v-model="password"
+         :counter="10" />
       </div>
-      <button @click="registerUser">Sing UP!!</button>
+      <v-btn 
+      @click="registerUser"
+      color="red"
+      elevation="9"
+      x-large
+      loading
+      >Sing UP!!</v-btn>
+      </v-container>
     </div>
   </template>
   

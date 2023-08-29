@@ -1,15 +1,21 @@
 <template>
+
     <div>
       <h1>SING IN</h1>
       <div>
         <h3>E-mail</h3>
-        <input type="text" placeholder="E-mail" v-model="email" />
+        <input type="text" placeholder="*****-mail.com" v-model="email" />
       </div>
       <div>
         <h3>Password</h3>
-        <input type="text" placeholder="Password" v-model="password" />
+        <input type="text" placeholder="*********" v-model="password" />
       </div>
-      <button @click="login">SING IN!!</button>
+      <v-btn @click="login"
+      color="red"
+      elevation="9"
+      x-large >
+      SING IN!!
+      </v-btn>
     </div>
   </template>
     
@@ -41,5 +47,6 @@
       }
      }
     }
+
     </script>
     

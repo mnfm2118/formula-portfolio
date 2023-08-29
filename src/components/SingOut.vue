@@ -4,17 +4,18 @@
       width="50%"
     >
       <div class="logout">SING OUT？</div>
-      <button
+      <v-btn
+        block
         class="ma-3"
         color="gray"
         @click="$router.go(-1)"
-      >戻る</button>
-      <button 
-        color="grey lighten-1"
-        dark
+      >戻る</v-btn>
+      <v-btn 
+        block
+        color="grey"
         @click="logout()">
         SIGN OUT!!
-      </button>
+      </v-btn>
     </v-card>
   </template>
   
@@ -44,5 +45,8 @@ const auth = getAuth(app);
   .logout {
     font-size: 40px;
     font-weight: bold;
+    hover {
+      opacity: 0,10;
+    }
   }
   </style>
