@@ -16,7 +16,7 @@ import Paragraph from '@editorjs/paragraph'
 // }
 
 function doEditor() {
-  new EditorJS({
+  return new EditorJS({
     holder: "editor",
     tools: {
       header: {

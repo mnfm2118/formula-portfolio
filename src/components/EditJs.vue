@@ -13,7 +13,7 @@
   import PdfExport from './PdfExport.vue'
   import { app } from "../firebase";
   import { getFirestore, collection, addDoc } from "firebase/firestore";
-  import { getAuth } from "firebase/auth";
+  import { getAuth, TwitterAuthProvider } from "firebase/auth";
   import doEditor from '../plugins/editor'
 
   const db = getFirestore(app);
@@ -33,16 +33,18 @@
     //             });
       // },
       async saveDocument() {
-        const body = document.getElementById("editor")
+        console.log (this.editor);
+        const outputData = await this.editor.save();
+        ['time', 'version'].forEach(e => delete outputData[e]);
         const docRef = await addDoc(collection(db, "documents"), {
-          body: body.outerHTML,
+          body: outputData,
           uid: getAuth(app).currentUser.uid
         });
         alert(docRef.id);      
       }
     },
     mounted() {
-        doEditor();
+      this.editor = doEditor();
     },
     components: { PdfExport }
   }
