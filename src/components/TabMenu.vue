@@ -22,7 +22,8 @@
           { title: 'SingIn', path: '/sing_in' },
           { title: 'EditJs', path: '/edit_Js'},
           { title: 'PdfExport', path: '/pdf_export'},
-          { title: 'HelpPage', path: '/help'}
+          { title: 'HelpPage', path: '/help'},
+          { title: 'SaveDate', path: '/savedate'}
         ]
       }
     }
