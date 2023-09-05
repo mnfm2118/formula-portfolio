@@ -8,7 +8,7 @@ import SingUp from '../components/SingUp.vue'
 import EditJs from '../components/EditJs.vue'
 import PdfExport from '../components/PdfExport.vue'
 import HelpPage from '../components/HelpPage.vue'
-import SaveDate from '../components/SaveDate.vue'
+import SaveData from '../components/SaveData.vue'
 import { app } from '../firebase'
 import { getAuth } from 'firebase/auth'
 
@@ -63,9 +63,9 @@ base: '/vue-test/',
         component: HelpPage
     },
     {
-    path: '/savedate',
-        name: 'SaveDate',
-        component: SaveDate
+    path: '/savedata',
+        name: 'SaveData',
+        component: SaveData
     }
   ]
 });

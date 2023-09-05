@@ -18,7 +18,7 @@ const db = getFirestore(app)
 
   export default {
    
-    name: 'SaveDate',
+    name: 'SaveData',
     data () {
       return {
         docs:[1, 2, 3]

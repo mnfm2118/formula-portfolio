@@ -23,7 +23,7 @@
           { title: 'EditJs', path: '/edit_Js'},
           { title: 'PdfExport', path: '/pdf_export'},
           { title: 'HelpPage', path: '/help'},
-          { title: 'SaveDate', path: '/savedate'}
+          { title: 'SaveData', path: '/savedata'}
         ]
       }
     }
