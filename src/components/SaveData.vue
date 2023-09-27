@@ -2,15 +2,27 @@
     <div class="text">
       <div>
         <ul>
-            <li v-for="i in this.docs" :key=i >{{ i }}</li>
+          <li
+          v-for= "(i,index) in this.docs" 
+          :key = index >
+            <v-btn @click = "loadDocument(index)">
+              {{ i.body.blocks[0].id }}
+            </v-btn>
+          </li>
         </ul>
     </div>
+
+    <EditJs ref="EditJs" :document = document></EditJs>
+
     </div>
   </template>
   
   <script>
  import { app } from "../firebase";
- import { getFirestore } from "firebase/firestore";
+ import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+ import { getAuth } from "firebase/auth";
+ import EditJs from "./EditJs";
+
 
 const db = getFirestore(app)
 
@@ -19,52 +31,34 @@ const db = getFirestore(app)
   export default {
    
     name: 'SaveData',
+    components: {
+      EditJs
+    },
     data () {
       return {
-        docs:[1, 2, 3]
+        docs:[],
+        document:{}
       }
     },
     methods: {
-    async getdocuments() {
-        const querySnapshot = await db.collection('documents')
-        .where('uid', '==', '')
-  .get()
-console.log(querySnapshot.size)
-console.log(querySnapshot.empty)
-querySnapshot.forEach((postDoc) => {
-  console.log(postDoc.id, ' => ', JSON.stringify(postDoc.data()))
-})
+      async getdocuments() {
+        const auth = getAuth(app);
+        const user = auth.currentUser;
+        const q = query(collection(db, "documents"), where("uid", "==",user.uid ));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          this.docs.push(doc.data()); 
+        });
+      },
+      loadDocument(index) {
+        console.log(this.docs);
+        console.log(index);
+        this.document = this.docs[index].body;
+        this.$refs.EditJs.sync();
+      }
+    },
+    mounted () {
+      this.getdocuments()
     }
-},
-mounted () {
-    this.getdocuments()
-}
-
   }
   </script>
-  
-  <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style scoped>
-  
-  div.text {
-    text-align: center;
-  }
-  
-  div.content {
-    background-color: #eee;
-    display: inline-block;
-    margin: 10px;
-    width: 30%;
-  }
-  
-  h3 {
-    color: white;
-  }
-  
-  p {
-    width: 90%;
-    display: inline-block;
-    text-align: left;
-  }
-  
-  </style>

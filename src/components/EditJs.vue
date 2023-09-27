@@ -1,12 +1,21 @@
 <template>
   <div>
-    <div id="editor"></div>
+    <div style=
+    "padding: 10px;
+    marigin-bottom: 10px;
+    border: 1px solid #333333;"
+    >
+      
+      <div id="editor"></div>
+    </div>
 
+    {{ this.document }}
     <PdfExport></PdfExport>
 
     <button class="btn btn-primary pl-5 pr-5" @click="saveDocument">SAVE</button>
-    </div>
-  </template>
+  </div>
+  
+</template>
   
 <script>
   import EditorJS from '@editorjs/editorjs'
@@ -20,6 +29,10 @@
 
   export default {
     name: "EditJs",
+    
+    props: {
+      document: Object
+    },
     data() {
         return {
             editor: null,
@@ -41,10 +54,13 @@
           uid: getAuth(app).currentUser.uid
         });
         alert(docRef.id);      
+      },
+      sync() {
+        this.editor = doEditor(this.document);
       }
     },
     mounted() {
-      this.editor = doEditor();
+      this.editor = doEditor(this.document);
     },
     components: { PdfExport }
   }

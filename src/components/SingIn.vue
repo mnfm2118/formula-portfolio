@@ -2,51 +2,55 @@
 
     <div>
       <h1>SING IN</h1>
-      <div>
-        <h3>E-mail</h3>
-        <input type="text" placeholder="*****-mail.com" v-model="email" />
-      </div>
-      <div>
-        <h3>Password</h3>
-        <input type="text" placeholder="*********" v-model="password" />
-      </div>
-      <v-btn @click="login"
-      color="red"
-      elevation="9"
-      x-large >
-      SING IN!!
-      </v-btn>
+      <v-container>
+        <div>
+          <h2>E-mail</h2>
+          <v-text-field label="*****@mail.com" v-model="email" />
+        </div>
+        <div>
+          <h2>Password</h2>
+          <v-text-field
+          v-model="password"/>
+        </div>
+        <v-btn @click="login"
+        block
+        color="red"
+        elevation="9"
+        x-large >
+        SING IN!!
+        </v-btn>
+      </v-container>
     </div>
-  </template>
+</template>
     
-    <script>
+<script>
 
-    import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-    import { app } from "../firebase";
+  import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+  import { app } from "../firebase";
 
-    const auth = getAuth(app);
+  const auth = getAuth(app);
 
-    export default {
-     name: 'SingIn',
-     data(){
+  export default {
+    name: 'SingIn',
+    data(){
       return{
-       email:"",
-       password:""
+        email:"",
+        password:""
       };
-     },
-     methods: {
+    },
+    methods: {
       login(){
         signInWithEmailAndPassword(auth, this.email, this.password)
         .then(res => {
-      alert('success', res)
-    } )
-    .catch(e => {
-      alert('error')
-      console.log('error', e)
-    })
+          alert('success', res)
+        } )
+        .catch(e => {
+          alert('error')
+          console.log('error', e)
+        })
       }
-     }
     }
+  }
 
-    </script>
+</script>
     
