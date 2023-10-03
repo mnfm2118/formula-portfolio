@@ -51,10 +51,10 @@ const db = getFirestore(app)
         });
       },
       loadDocument(index) {
-        console.log(this.docs);
-        console.log(index);
+        
         this.document = this.docs[index].body;
         this.$refs.EditJs.sync();
+
       }
     },
     mounted () {
