@@ -27,6 +27,7 @@
 
   import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
   import { app } from "../firebase";
+  import router from '../router';
 
   const auth = getAuth(app);
 
@@ -42,6 +43,7 @@
       login(){
         signInWithEmailAndPassword(auth, this.email, this.password)
         .then(res => {
+          router.push({ path: '/edit_js' });
           alert('success', res)
         } )
         .catch(e => {

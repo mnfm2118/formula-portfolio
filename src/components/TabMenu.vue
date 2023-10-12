@@ -16,14 +16,14 @@
     data () {
       return {
         items: [
-          { title: 'top', path: '/' },
-          { title: 'SingOut', path: '/sing_out' },
-          { title: 'SingUp', path: '/sing_up' },
-          { title: 'SingIn', path: '/sing_in' },
-          { title: 'EditJs', path: '/edit_Js'},
-          { title: 'PdfExport', path: '/pdf_export'},
-          { title: 'HelpPage', path: '/help'},
-          { title: 'SaveData', path: '/savedata'}
+          { title: 'トップ', path: '/' },
+          { title: 'テキスト', path: '/edit_Js'},
+          { title: 'データ', path: '/savedata'},
+          { title: 'Pdf化', path: '/pdf_export'},
+          { title: 'ログイン', path: '/sing_in' },
+          { title: 'ログアウト', path: '/sing_out' },
+          { title: '登録', path: '/sing_up' },
+          { title: 'ヘルプ', path: '/help'}
         ]
       }
     }
@@ -34,7 +34,7 @@
   
   ol {
     margin-left: auto;
-    width: 480px;
+    width: 800px;
     display:flex;
     justify-content: center;
     padding: 0;
@@ -42,7 +42,7 @@
   }
   
   li {
-    width: 100px;
+    width: 80px;
     height: 50px;
     margin-left:10px;
     margin-right:10px;
@@ -50,6 +50,7 @@
     background-color: skyblue;
     border-radius: 8px;
     position: relative;
+    white-space: nowrap;
   }
   
   li:hover {

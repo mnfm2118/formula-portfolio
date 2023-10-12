@@ -31,6 +31,7 @@
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../firebase.js";
+import router from '../router';
 
 const auth = getAuth(app);
 
@@ -48,6 +49,7 @@ const auth = getAuth(app);
   registerUser(){
     createUserWithEmailAndPassword(auth, this.email, this.password)
     .then(res => {
+      router.push({ path: '' });
       alert('success', res)
     } )
     .catch(e => {

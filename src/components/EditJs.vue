@@ -46,7 +46,6 @@
     //             });
       // },
       async saveDocument() {
-        console.log (this.editor);
         const outputData = await this.editor.save();
         ['time', 'version'].forEach(e => delete outputData[e]);
         const docRef = await addDoc(collection(db, "documents"), {
@@ -56,6 +55,7 @@
         alert(docRef.id);      
       },
       sync() {
+        console.log(document.toString);
         this.editor = doEditor(this.document);
       }
     },

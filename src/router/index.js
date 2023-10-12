@@ -1,7 +1,7 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '../components/HelloWorld.vue'
+import Top from '../components/Top.vue'
 import SingIn from '../components/SingIn.vue' //①import
 import SingOut from '../components/SingOut.vue'
 import SingUp from '../components/SingUp.vue'
@@ -21,8 +21,8 @@ base: '/vue-test/',
   routes: [
     {
       path: '',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Top',
+      component: Top
     },
 
 //②profile
