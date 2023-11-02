@@ -28,8 +28,11 @@
   import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
   import { app } from "../firebase";
   import router from '../router';
+  import { useSessionStore } from '../stores/session';
 
   const auth = getAuth(app);
+  const store = useSessionStore();
+
 
   export default {
     name: 'SingIn',
@@ -43,6 +46,8 @@
       login(){
         signInWithEmailAndPassword(auth, this.email, this.password)
         .then(res => {
+          // store.login() 
+          console.log(res); 
           router.push({ path: '/edit_js' });
           alert('success', res)
         } )

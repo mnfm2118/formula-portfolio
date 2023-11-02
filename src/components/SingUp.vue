@@ -1,30 +1,48 @@
 <template>
-    <div>
-      <h1>SING UP</h1>
-      <v-container>
-        <div>
+  <v-app>
+    <h1>SING UP</h1>
+    <v-container>
+      <v-row>
+        <v-row>
           <h2>E-mail</h2>
-          <v-text-field label="*****@mail.com" v-model="email" />
-        </div>
-        <div>
-          <h2>Password</h2>
-          <v-text-field
-            label="(10文字以上)"
-            v-model="password"
-            :counter="10" 
-          />
-        </div>
+        </v-row>
+        <v-row>
+        <v-text-field type="email" label="*****@mail.com" v-model="email" />
+        </v-row>
+      </v-row>
+      <div>
+        <h2>Password</h2>
+        <v-row>
+          <v-col cols="1" md="12">
+            <v-form>
+              <v-text-field
+                type="password"
+                label="(10文字以上)"
+                v-model="password"
+                :counter="10" 
+                :rules="passwordRules"
+                v-bind:disabled="activateSbumit"
+              />
+            </v-form>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-btn class="mr-auto" id="btn_passiview" >表示</v-btn>
+        </v-row>
+      </div>
+      <br>
+      <v-row>
         <v-btn 
-        @click="registerUser"
-        color="red"
-        elevation="9"
-        block
-        x-large
-        >
-          Sing UP!!
-        </v-btn>
-      </v-container>
-    </div>
+          @click="registerUser"
+          color="red"
+          elevation="9"
+          block
+          x-large
+          v-bind:disabled="activateSubmit"
+        > Sing UP!!  </v-btn>
+      </v-row>
+    </v-container>
+  </v-app>
   </template>
   
   <script>
@@ -35,31 +53,41 @@ import router from '../router';
 
 const auth = getAuth(app);
 
+export default {
+  name: "SingUp",
+  data() {
+    return {
+      passwordRules: [
+        v => v.length >= 10 || 'Password must be more than 10 characters'
+      ],
+      
 
+      email: "",
+      password: ""
+    };
+  },
 
-  export default {
-    name: "SingUp",
-    data() {
-      return {
-        email: "",
-        password: ""
-      };
+  methods: {
+    activateSubmit(){
+      if(this.password.length >= 10) {
+        return false;
+      } else {
+        return true;
+      }
     },
-    methods: {
-  registerUser(){
-    createUserWithEmailAndPassword(auth, this.email, this.password)
-    .then(res => {
-      router.push({ path: '' });
-      alert('success', res)
-    } )
-    .catch(e => {
-      alert('error')
-      console.log('error', e)
-    })
+
+    registerUser(){
+      createUserWithEmailAndPassword(auth, this.email, this.password)
+      .then(res => {
+        router.push({ path: '' });
+        alert('success', res)
+      } )
+      .catch(e => {
+        alert('error')
+        console.log('error', e)
+      })
+    }
   }
 }
-}
 
-  </script>
-
-
+</script>
