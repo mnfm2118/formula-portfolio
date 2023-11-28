@@ -19,7 +19,10 @@ function doEditor(data) {
   console.log(data);
   return new EditorJS({
     holder: "editor",
-    placeholder: data,
+    data: {
+      time: 1552744582955,
+      ...data
+     },
     tools: {
       header: {
         class: Header,

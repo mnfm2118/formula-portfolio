@@ -11,7 +11,7 @@ import HelpPage from '../components/HelpPage.vue'
 import SaveData from '../components/SaveData.vue'
 import { app } from '../firebase'
 import { getAuth } from 'firebase/auth'
-
+import { useSessionStore } from '../stores/session'
 Vue.use(Router)
 
 const router =  new Router({
@@ -71,9 +71,9 @@ base: '/vue-test/',
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(getAuth(app).currentUser);
+  const store = useSessionStore();
   const requiresAuth = to.matched.some(recode => recode.meta.requiresAuth);
-  if (requiresAuth && !getAuth(app).currentUser)  {
+  if (requiresAuth && !store.isLoggedln)  {
     next({ path: "/sing_in", query: { redirect: to.fullPath } });
   } else {
     next();

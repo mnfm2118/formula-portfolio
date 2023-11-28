@@ -6,41 +6,41 @@
     </div>
     </div>
   </template>
-  
-  <script>
-  export default {
-    name: 'HelpPage',
-    data () {
-      return {
-        name: 'HelpPage',
-        text: '使用方法・お問い合わせ'
-      }
-    }
-  }
-  </script>
-  
+
+<script>
+export default {
+  name: 'HelpPage',
+  data() {
+    return {
+      name: 'HelpPage',
+      text: '使用方法・お問い合わせ',
+    };
+  },
+};
+</script>
+
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
-  
+
   div.help {
     text-align: center;
   }
-  
+
   div.content {
     background-color: #eee;
     display: inline-block;
     margin: 10px;
     width: 30%;
   }
-  
+
   h3 {
     color: red;
   }
-  
+
   p {
     width: 90%;
     display: inline-block;
     text-align: left;
   }
-  
+
   </style>

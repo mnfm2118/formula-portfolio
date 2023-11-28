@@ -19,7 +19,7 @@
                 type="password"
                 label="(10文字以上)"
                 v-model="password"
-                :counter="10" 
+                :counter="10"
                 :rules="passwordRules"
                 v-bind:disabled="activateSbumit"
               />
@@ -32,7 +32,7 @@
       </div>
       <br>
       <v-row>
-        <v-btn 
+        <v-btn
           @click="registerUser"
           color="red"
           elevation="9"
@@ -44,50 +44,47 @@
     </v-container>
   </v-app>
   </template>
-  
-  <script>
 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from "../firebase.js";
+<script>
+
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import app from '../firebase';
 import router from '../router';
 
 const auth = getAuth(app);
 
 export default {
-  name: "SingUp",
+  name: 'SingUp',
   data() {
     return {
       passwordRules: [
-        v => v.length >= 10 || 'Password must be more than 10 characters'
+        (v) => v.length >= 10 || 'Password must be more than 10 characters',
       ],
-      
 
-      email: "",
-      password: ""
+      email: '',
+      password: '',
     };
   },
 
   methods: {
-    activateSubmit(){
-      if(this.password.length >= 10) {
+    activateSubmit() {
+      if (this.password.length >= 10) {
         return false;
-      } else {
-        return true;
       }
+      return true;
     },
 
-    registerUser(){
+    registerUser() {
       createUserWithEmailAndPassword(auth, this.email, this.password)
-      .then(res => {
-        router.push({ path: '' });
-        alert('success', res)
-      } )
-      .catch(e => {
-        alert('error')
-        console.log('error', e)
-      })
-    }
-  }
-}
+        .then((res) => {
+          router.push({ path: '' });
+          alert('success', res);
+        })
+        .catch((e) => {
+          alert('error');
+        });
+    },
+  },
+};
 
 </script>

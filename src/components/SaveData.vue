@@ -1,30 +1,30 @@
 <template>
-    <div class="text">
-      <div>
-        <ul>
-          <li
-          v-for= "(i,index) in this.docs" 
-          :key = index >
-            <v-btn @click = "loadDocument(index)">
-              {{ i.body.blocks[0].id }}
-            </v-btn>
-          </li>
-        </ul>
+  <div class="text">
+    <div>
+      <ul>
+        <li
+        v-for= "(i,index) in this.docs" 
+        :key = index >
+          <v-btn @click = "loadDocument(index)">
+            {{ i.body.blocks[0].id }}
+          </v-btn>
+        </li>
+      </ul>
     </div>
 
     <EditJs ref="EditJs" :document = document></EditJs>
 
-    </div>
-  </template>
+  </div>
+</template>
   
-  <script>
- import { app } from "../firebase";
+<script>
+ import app from "../firebase";
  import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
- import { getAuth } from "firebase/auth";
  import EditJs from "./EditJs";
+ import { useSessionStore } from "../stores/session";
 
 
-const db = getFirestore(app)
+  const db = getFirestore(app)
 
 
 
@@ -42,9 +42,8 @@ const db = getFirestore(app)
     },
     methods: {
       async getdocuments() {
-        const auth = getAuth(app);
-        const user = auth.currentUser;
-        const q = query(collection(db, "documents"), where("uid", "==",user.uid ));
+        const store = useSessionStore();
+        const q = query(collection(db, "documents"), where("uid", "==",store.user.uid ));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
           this.docs.push(doc.data()); 
@@ -61,4 +60,4 @@ const db = getFirestore(app)
       this.getdocuments()
     }
   }
-  </script>
+</script>

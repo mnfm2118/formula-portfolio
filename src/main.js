@@ -4,13 +4,14 @@ import Vuetify from 'vuetify'
 // import EditJs from './components/EditJs.vue'
 import router from './router'
 import 'vuetify/dist/vuetify.min.css'
-import { createPinia, PiniaVuePlugin } from 'pinia';
+import { createPinia, PiniaVuePlugin } from 'pinia'
 
 
 Vue.config.productionTip = false;
 
 Vue.use(Vuetify);
 Vue.use(PiniaVuePlugin);
+Vue.config.devtools = true;
 
 const pinia = createPinia();
 

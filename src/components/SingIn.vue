@@ -22,42 +22,43 @@
       </v-container>
     </div>
 </template>
-    
+
 <script>
 
-  import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-  import { app } from "../firebase";
-  import router from '../router';
-  import { useSessionStore } from '../stores/session';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import app from '../firebase';
+import router from '../router';
+import { useSessionStore } from '../stores/session';
 
-  const auth = getAuth(app);
-  const store = useSessionStore();
+const auth = getAuth(app);
 
-
-  export default {
-    name: 'SingIn',
-    data(){
-      return{
-        email:"",
-        password:""
-      };
-    },
-    methods: {
-      login(){
-        signInWithEmailAndPassword(auth, this.email, this.password)
-        .then(res => {
-          // store.login() 
-          console.log(res); 
+export default {
+  name: 'SingIn',
+  setup() {
+    const store = useSessionStore();
+    return { store };
+  },
+  data() {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+  methods: {
+    login() {
+      signInWithEmailAndPassword(auth, this.email, this.password)
+        .then((res) => {
+          this.store.login(res.user);
+          console.log(res);
           router.push({ path: '/edit_js' });
-          alert('success', res)
-        } )
-        .catch(e => {
-          alert('error')
-          console.log('error', e)
+          alert('success', res);
         })
-      }
-    }
-  }
+        .catch((e) => {
+          alert('error');
+          console.log('error', e);
+        });
+    },
+  },
+};
 
 </script>
-    

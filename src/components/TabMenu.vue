@@ -9,29 +9,29 @@
       </ol>
     </div>
   </template>
-  
-  <script>
-  export default {
-    name: 'TabMenu',
-    data () {
-      return {
-        items: [
-          { title: 'トップ', path: '/' },
-          { title: 'テキスト', path: '/edit_Js'},
-          { title: 'データ', path: '/savedata'},
-          { title: 'Pdf化', path: '/pdf_export'},
-          { title: 'ログイン', path: '/sing_in' },
-          { title: 'ログアウト', path: '/sing_out' },
-          { title: '登録', path: '/sing_up' },
-          { title: 'ヘルプ', path: '/help'}
-        ]
-      }
-    }
-  }
-  </script>
-  
+
+<script>
+export default {
+  name: 'TabMenu',
+  data() {
+    return {
+      items: [
+        { title: 'トップ', path: '/' },
+        { title: 'テキスト', path: '/edit_Js' },
+        { title: 'データ', path: '/savedata' },
+        { title: 'Pdf化', path: '/pdf_export' },
+        { title: 'ログイン', path: '/sing_in' },
+        { title: 'ログアウト', path: '/sing_out' },
+        { title: '登録', path: '/sing_up' },
+        { title: 'ヘルプ', path: '/help' },
+      ],
+    };
+  },
+};
+</script>
+
   <style scoped>
-  
+
   ol {
     margin-left: auto;
     width: 800px;
@@ -40,7 +40,7 @@
     padding: 0;
     list-style: none;
   }
-  
+
   li {
     width: 80px;
     height: 50px;
@@ -52,11 +52,10 @@
     position: relative;
     white-space: nowrap;
   }
-  
+
   li:hover {
     opacity: 0.4;
   }
-  
 
   a {
     position: absolute;
@@ -68,5 +67,5 @@
     text-decoration: none;
     line-height: 50px;
   }
-  
+
   </style>

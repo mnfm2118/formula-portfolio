@@ -7,8 +7,9 @@ export const useSessionStore = defineStore('session', () => {
 
   const isLoggedln = ref(false);
 
-  function login(user)  {
-    user.value = user;
+  function login(data)  {
+    console.log(data);
+    user.value = {...data};
     isLoggedln.value = true;
   }
  
