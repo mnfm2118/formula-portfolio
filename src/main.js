@@ -1,11 +1,10 @@
-import Vue from 'vue'
-import App from './App.vue'
-import Vuetify from 'vuetify'
+import Vue from 'vue';
+import Vuetify from 'vuetify';
+import { createPinia, PiniaVuePlugin } from 'pinia';
+import App from './App.vue';
 // import EditJs from './components/EditJs.vue'
-import router from './router'
-import 'vuetify/dist/vuetify.min.css'
-import { createPinia, PiniaVuePlugin } from 'pinia'
-
+import router from './router';
+import 'vuetify/dist/vuetify.min.css';
 
 Vue.config.productionTip = false;
 
@@ -16,10 +15,10 @@ Vue.config.devtools = true;
 const pinia = createPinia();
 
 new Vue({
-  vuetify : new Vuetify(),
+  vuetify: new Vuetify(),
   router,
   pinia,
 
-  //render: h => h(EditJs),
-  render: h => h(App)
-}).$mount('#app')
+  // render: h => h(EditJs),
+  render: (h) => h(App),
+}).$mount('#app');

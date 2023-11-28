@@ -14,14 +14,14 @@
 
 <script>
 
-import TabMenu from './components/TabMenu.vue'
+import TabMenu from './components/TabMenu.vue';
 
 export default {
   name: 'App',
   components: {
-    TabMenu
-  }
-}
+    TabMenu,
+  },
+};
 </script>
 
 <style>
@@ -34,5 +34,3 @@ export default {
   margin-top: 60px;
 }
 </style>
-
-

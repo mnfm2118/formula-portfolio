@@ -30,7 +30,6 @@
 <script>
 import { getAuth, signOut } from 'firebase/auth';
 import app from '../firebase';
-import router from '../router';
 
 const auth = getAuth(app);
 export default {
@@ -39,7 +38,7 @@ export default {
     logout() {
       signOut(auth).then(() => {
         // SINGIN画面に遷移
-        router.push({ path: '/sing_in' });
+        window.location.href = '/sing_in';
       })
         .catch(() => {
           alert('ログアウトerror');

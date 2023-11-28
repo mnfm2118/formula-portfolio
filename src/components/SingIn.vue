@@ -27,8 +27,7 @@
 
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import app from '../firebase';
-import router from '../router';
-import { useSessionStore } from '../stores/session';
+import useSessionStore from '../stores/session';
 
 const auth = getAuth(app);
 
@@ -50,7 +49,7 @@ export default {
         .then((res) => {
           this.store.login(res.user);
           console.log(res);
-          router.push({ path: '/edit_js' });
+          window.location.href = '/edit_js';
           alert('success', res);
         })
         .catch((e) => {

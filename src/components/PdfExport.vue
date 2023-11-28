@@ -1,5 +1,5 @@
 <template>
-  
+
   <button class="btn btn-primary pl-5 pr-5" @click="createPDF">Download PDF</button>
 
 </template>

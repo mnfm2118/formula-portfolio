@@ -49,7 +49,6 @@
 
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import app from '../firebase';
-import router from '../router';
 
 const auth = getAuth(app);
 
@@ -77,10 +76,10 @@ export default {
     registerUser() {
       createUserWithEmailAndPassword(auth, this.email, this.password)
         .then((res) => {
-          router.push({ path: '' });
+          window.location.href = '';
           alert('success', res);
         })
-        .catch((e) => {
+        .catch(() => {
           alert('error');
         });
     },

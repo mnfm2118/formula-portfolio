@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,13 +14,10 @@ const firebaseConfig = {
   storageBucket: process.env.VUE_APP_STORAGEBUCKET,
   messagingSenderId: process.env.VUE_APP_MESSAGINGSENDER_ID,
   appId: process.env.VUE_APP_APP_ID,
-  measurementId: process.env.VUE_APP_MEASEREMENT_ID
+  measurementId: process.env.VUE_APP_MEASEREMENT_ID,
 };
 
 // Initialize Firebase
-var app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
 export default app;
-
-
-
