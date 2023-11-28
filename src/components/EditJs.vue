@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc , updateDoc} from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import PdfExport from './PdfExport.vue';
 import app from '../firebase';
@@ -57,6 +57,12 @@ export default {
         uid: getAuth(app).currentUser.uid,
       });
       alert(docRef.id);
+
+      const washingtonRef = doc(db, "documents", "DC");
+
+      await updateDoc(washingtonRef, {
+        capital: true
+      });
     },
     sync() {
       this.editor = doEditor(this.document);
