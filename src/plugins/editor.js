@@ -3,26 +3,9 @@ import Header from '@editorjs/header';
 import List from '@editorjs/list';
 import Paragraph from '@editorjs/paragraph';
 
-// export default ({ $axios }, inject) => {
-//   inject('editor', {
-//     EditorJS: ({ holder, placeholder, data }) => {
-//       return new EditorJS({
-//         holder,
-//         placeholder,
-//         data,
-//       })
-//     },
-//   })
-// }
-
-function doEditor(data) {
-  console.log(data);
+function doEditor() {
   return new EditorJS({
     holder: 'editor',
-    data: {
-      time: 1552744582955,
-      ...data,
-    },
     tools: {
       header: {
         class: Header,

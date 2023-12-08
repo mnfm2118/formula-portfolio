@@ -5,12 +5,13 @@
 </template>
 
 <script>
-import { JsPDF } from 'jspdf';
+import { jsPDF } from 'jspdf';
 
 export default {
   methods: {
     createPDF() {
-      const doc = new JsPDF();
+      // eslint-disable-next-line
+      const doc = new jsPDF();
       document.getElementById('editor');
       const text = document.getElementById('editor').innerText;
       doc.text(text, 10, 10);

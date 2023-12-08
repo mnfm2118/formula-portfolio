@@ -18,11 +18,7 @@ export default {
       items: [
         { title: 'トップ', path: '/' },
         { title: 'テキスト', path: '/edit_Js' },
-        { title: 'データ', path: '/savedata' },
         { title: 'Pdf化', path: '/pdf_export' },
-        { title: 'ログイン', path: '/sing_in' },
-        { title: 'ログアウト', path: '/sing_out' },
-        { title: '登録', path: '/sing_up' },
         { title: 'ヘルプ', path: '/help' },
       ],
     };
