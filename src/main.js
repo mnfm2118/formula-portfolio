@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import { createPinia, PiniaVuePlugin } from 'pinia';
+// import VueMathjax from 'vue-mathjax';
 import App from './App.vue';
 // import EditJs from './components/EditJs.vue'
 import router from './router';
@@ -11,6 +12,7 @@ Vue.config.productionTip = false;
 Vue.use(Vuetify);
 Vue.use(PiniaVuePlugin);
 Vue.config.devtools = true;
+// Vue.use(VueMathjax);
 
 const pinia = createPinia();
 

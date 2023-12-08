@@ -50,7 +50,7 @@ export default {
           this.store.login(res.user);
           console.log(res);
           window.location.href = '/edit_js';
-          alert('success', res);
+          alert(res);
         })
         .catch((e) => {
           alert('error');

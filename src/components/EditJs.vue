@@ -17,12 +17,14 @@
 </template>
 
 <script>
-import { getFirestore, collection, addDoc , updateDoc} from 'firebase/firestore';
+import {
+  getFirestore, collection, addDoc, updateDoc, doc,
+} from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import PdfExport from './PdfExport.vue';
 import app from '../firebase';
 import doEditor from '../plugins/editor';
-import { useSessionStore } from '../stores/session';
+import useSessionStore from '../stores/session';
 
 const db = getFirestore(app);
 
@@ -58,10 +60,10 @@ export default {
       });
       alert(docRef.id);
 
-      const washingtonRef = doc(db, "documents", "DC");
+      const washingtonRef = doc(db, 'documents', 'DC');
 
       await updateDoc(washingtonRef, {
-        capital: true
+        capital: true,
       });
     },
     sync() {

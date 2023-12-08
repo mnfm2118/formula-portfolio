@@ -23,7 +23,7 @@ import {
 } from 'firebase/firestore';
 import app from '../firebase';
 import EditJs from './EditJs.vue';
-import { useSessionStore } from '../stores/session';
+import useSessionStore from '../stores/session';
 
 const db = getFirestore(app);
 
